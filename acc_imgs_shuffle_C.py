@@ -14,12 +14,10 @@ accel = adxl345.ADXL345()
 axes = accel.getAxes(True)
 
 
-// add solids including black to imageC folder
-
 pathA = my_images_pathA
 pathB = my_images_pathB
 pathC = my_images_pathC
-  
+
 imgs = list() #load up an image list
 directoryA = os.path.join(pathA, extension)
 filesA = glob.glob(directoryA)
@@ -47,22 +45,16 @@ while True:
         pygame.mouse.set_visible(False)
         new_imgB = Image(filesB[1])
         new_imgC = Image(filesC[1])
-        
+
 
         if x > .95:
-             //newer_img = new_imgA.binarize() 
-             //disp.writeFrame(newer_img)
              newer_img = new_imgA + new_imgB
              disp.writeFrame(newer_img)
 
         elif y < -.65:
              newer_img = new_imgB.invert() - new_imgA
              disp.writeFrame(newer_img)
-             
+
         else:
              newer_img = new_imgC
              disp.writeFrame(newer_img)
-
-
-
-
